@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/antecedentes', function () {
-    return view('antecedentes');
-});
+Route::get('/registro-menores', [
+    'uses' => 'RegistroMenoresController@getRegistro',
+    'middleware' => 'auth',
+
+])->name('resgistroMenores');
+
 
 Auth::routes();
 
