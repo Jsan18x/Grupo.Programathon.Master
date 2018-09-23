@@ -8,6 +8,6 @@ class Parentesco extends Model
 {
     public function menores()
     {
-        return $this->hasMany('App\RegistroMenores');
+        return $this->hasMany('App\RegistroMenor');
     }
 }

@@ -26,8 +26,12 @@ class CreateRegistroMenoresTable extends Migration
             $table->unsignedInteger('parentesco_id');
             $table->timestamps();
 
-            $table->foreign('etnia_id') -> reference('id') -> on ('etnias');
-            $table->foreign('parentesco_id') -> reference('id') -> on ('parentescos');
+            $table->foreign('etnia_id')->
+            references('id')->
+            on('etnias');
+            $table->foreign('parentesco_id')->
+            references('id')->
+            on('parentescos');
         });
     }
 

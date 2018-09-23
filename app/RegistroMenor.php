@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RegistroMenores extends Model
+class RegistroMenor extends Model
 {
     protected $fillable = ['nombre','cedula','edad','genero','tratamientos','enfermedades'];
     public function etnia()

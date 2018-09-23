@@ -15,6 +15,13 @@ class CreateAntecedentesMenoresTable extends Migration
     {
         Schema::create('antecedentes_menores', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('menor_id');
+            $table->string('adjunto');
+            $table->text('adjuntoTexto');
+            $table->string('url');
+            $table->text('urlTexto');
+            $table->string('adjuntoCamara');
+            $table->text('camaraTexto');
             $table->timestamps();
         });
     }
