@@ -122,7 +122,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-1">
-                            <button type="button" class="btn btn-primary" onclick="agregar()">
+                            <button type="button" class="btn btn-success" onclick="agregar()">
                             {{ __('Agregar más') }}
                             </button>
                         </div>
@@ -174,6 +174,7 @@
                                 name="etnia" value="{{ old('etnia') }}" required autofocus>--}}
 
                                 <select id="etnia" name="etnia" class="form-control">
+                                    <Option disabled selected></Option>
                                     <Option value = "AfroCostarricense">Afro costarricense</Option>
                                     <Option value = "asiatico">Asiático</Option>
                                     <Option value = "blanco">Blanco</Option>
@@ -188,6 +189,37 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                                <label for="parentesco" class="col-md-4 col-form-label text-md-right">{{ __('Parentesco') }}</label>
+    
+                                <div class="col-md-6">
+                                    {{--<input id="etnia" type="text" class="form-control{{ $errors->has('etnia') ? ' is-invalid' : '' }}" 
+                                    name="etnia" value="{{ old('etnia') }}" required autofocus>--}}
+    
+                                    <select id="parentesco" name="parentesco" class="form-control">
+                                        <Option disabled selected></Option>
+                                        <Option value = "padre">Padre</Option>
+                                        <Option value = "madre">Madre</Option>
+                                        <Option value = "maestro(a)">Maestro(a)</Option>
+                                        <Option value = "encargado">Encargado</Option>
+                                        <Option value = "otro">Otro</Option>
+                                    </select>
+    
+                                    @if ($errors->has('parentesco'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('etnia') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                    <div class="col-md-1">
+                                        <button class="btn btn-primary">
+                                        {{ __('Aceptar') }}
+                                        </button>
+                                    </div>
+                                </div>
 
                 </div>
             </div>

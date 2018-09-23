@@ -21,6 +21,12 @@ Route::get('/registro-menores', [
 
 ])->name('resgistroMenores');
 
+Route::get('/antecedentes', [
+    'uses' => 'RegistroMenoresController@getAntecedentes',
+    'middleware' => 'auth',
+
+])->name('antecedentesMenores');
+
 
 Auth::routes();
 

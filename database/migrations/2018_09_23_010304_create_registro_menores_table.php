@@ -15,7 +15,19 @@ class CreateRegistroMenoresTable extends Migration
     {
         Schema::create('registro_menores', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nombre');
+            $table->string('cedula');
+            $table->integer('edad');
+            $table->char('genero');
+            $table->text('medicinas');
+            $table->text('tratamientos');
+            $table->text('enfermedades');
+            $table->unsignedInteger('etnia_id');
+            $table->unsignedInteger('parentesco_id');
             $table->timestamps();
+
+            $table->foreign('etnia_id') -> reference('id') -> on ('etnias');
+            $table->foreign('parentesco_id') -> reference('id') -> on ('parentescos');
         });
     }
 

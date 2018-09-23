@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\RegistroMenores;
 use Illuminate\Http\Request;
+use Auth;
 
 class RegistroMenoresController extends Controller
 {
@@ -22,7 +23,7 @@ class RegistroMenoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function createRegistro(Request $request)
     {
         
     }
@@ -33,9 +34,11 @@ class RegistroMenoresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function getAntecedentes()
     {
-        //
+        $user = Auth::user();
+        
+        return view('antecedentes');
     }
 
     /**
