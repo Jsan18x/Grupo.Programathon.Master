@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Contracts\Validation\ValidationException;
 
 class RegisterController extends Controller
 {
@@ -50,14 +51,37 @@ class RegisterController extends Controller
 
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'cedula'=>'numeric|required|max:9',
-            'name' => 'required|alpha|max:35',           
-            'email' => 'required|string|email|max:255|unique:users',
-            'telefono'=>'required|max:8|numeric',
-            'password'=>'required|min:8|max:100|regex:[a-z{1}[A-Z]{1}[0-9]{1}]',
-        ]);
+        $rules = array(
+            'cedula' => array(
+                'required',
+                'min:8'
+            ),
+            'name' => array(
+                'required',
+                'min:8'
+            ),
+            'email' => array(
+                'required',
+                'min:8',
+                 'string',
+                 'email',
+                 'max:255',
+                 'unique:users'
+            ),
+            'telefono' => array(
+                'required',
+                'min:8'
+            ),
+            'password' => array(
+                'required',
+                'min:6',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/'
+            ),
+            
+        );
+        return Validator::make($data, $rules);
     }
+
 
     /**
      * Create a new user instance after a valid registration.
