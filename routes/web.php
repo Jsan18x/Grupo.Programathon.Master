@@ -15,6 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/registro-menores', [
+    'uses' => 'RegistroMenoresController@getRegistro',
+    'middleware' => 'auth',
+
+])->name('resgistroMenores');
+
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
